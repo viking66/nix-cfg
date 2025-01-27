@@ -14,6 +14,11 @@
     allowUnfree = true;
   };
 
+  # home.file = {
+    # ".config/ghostty/config".source = ../dotfiles/ghostty.config;
+    # ".zshrc".source = ../dotfiles/zshrc;
+  # };
+
   home.packages = with pkgs; [
     age
     bat
