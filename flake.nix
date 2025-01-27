@@ -15,11 +15,13 @@
       system = builtins.head (builtins.attrNames nixpkgs.legacyPackages);
       pkgs = nixpkgs.legacyPackages.${system};
     in
-    flake-utils.lib.eachDefaultSystem (system: {
+    flake-utils.lib.eachDefaultSystem (system: let
+      pkgs = nixpkgs.legacyPackages.${system};
+    in {
       apps.install = {
         type = "app";
-        program = toString (nixpkgs.legacyPackages.${system}.writeShellScript "install" ''
-          ${nixpkgs.legacyPackages.${system}.home-manager}/bin/home-manager switch --flake .#jason
+        program = toString (pkgs.writeShellScript "install" ''
+          ${pkgs.home-manager}/bin/home-manager switch --flake .#jason
         '');
       };
     }) // {
