@@ -7,27 +7,25 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    flake-utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... } @ inputs: 
+  outputs = { self, nixpkgs, home-manager, flake-utils, ... }:
     let
-      system = "aarch64-darwin";
-      pkgs = import nixpkgs {
-        inherit system;
+      system = builtins.head (builtins.attrNames nixpkgs.legacyPackages);
+      pkgs = nixpkgs.legacyPackages.${system};
+    in
+    flake-utils.lib.eachDefaultSystem (system: {
+      apps.install = {
+        type = "app";
+        program = toString (nixpkgs.legacyPackages.${system}.writeShellScript "install" ''
+          ${nixpkgs.legacyPackages.${system}.home-manager}/bin/home-manager switch --flake .#jason
+        '');
       };
-    in {
+    }) // {
       homeConfigurations.jason = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [ ./home/home.nix ];
-      };
-
-      apps.${system} = {
-        install = {
-          type = "app";
-          program = toString (pkgs.writeShellScript "install" ''
-            ${pkgs.home-manager}/bin/home-manager switch --flake .#jason
-          '');
-        };
       };
     };
 }
