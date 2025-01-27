@@ -15,8 +15,13 @@
   };
 
   # home.file = {
-    # ".config/ghostty/config".source = ../dotfiles/ghostty.config;
-    # ".zshrc".source = ../dotfiles/zshrc;
+  #   ".config/ghostty/config".source = ../dotfiles/ghostty.config;
+  #   ".zshrc".source = ../dotfiles/zshrc;
+  #   "bin" = {
+  #     source = ../bin;
+  #     recursive = true;
+  #     executable = true;
+  #   };
   # };
 
   home.packages = with pkgs; [
