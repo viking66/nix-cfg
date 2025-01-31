@@ -19,7 +19,9 @@ nix shell nixpkgs#git -c bash -c 'git clone https://github.com/viking66/nix-cfg.
 cd ~/.config/nix-cfg
 ```
 
-4. Install configuration:
+4. Copy private age key to ./key.txt
+
+5. Install configuration:
 ```bash
 nix run .#install
 ```
@@ -36,3 +38,8 @@ nix run .#install
 - `home/home.nix`: Home Manager configuration
 - `dotfiles/`: Original dotfiles
 - `flake.nix`: Nix flake configuration
+
+## Encrypting sensitive data
+```bash
+age -r $(age-keygen -y key.txt) ~/.ssh/id_rsa > keys/id_rsa.age
+```
