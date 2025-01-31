@@ -1,45 +1,49 @@
-# Dotfiles & Home Manager Configuration
+# Nix Home Manager Configuration
 
-## First-Time Setup
+System-independent home directory and dotfiles management using Nix flakes and home-manager.
 
+## Features
+- Declarative configuration for dotfiles and packages
+- Encrypted SSH and SOPS keys using age
+- Cross-platform support (Linux/macOS)
+
+## Setup
+
+### Prerequisites
 1. Install Nix:
 ```bash
 curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
 ```
 
-2. Enable flakes:
-```bash
-mkdir -p ~/.config/nix
-echo "experimental-features = nix-command flakes" >> ~/.config/nix/nix.conf
-```
-
-3. Clone using a temporary shell with git:
+### Installation
+1. Clone repository:
 ```bash
 nix shell nixpkgs#git -c bash -c 'git clone https://github.com/viking66/nix-cfg.git ~/.config/nix-cfg'
 cd ~/.config/nix-cfg
 ```
 
-4. Copy private age key to ./key.txt
+2. Add private age key:
+- Copy your private age key to `./key.txt`
 
-5. Install configuration:
+3. Apply configuration:
+```bash
+nix --extra-experimental-features "nix-command flakes" run .#install
+```
+
+## Usage
+
+Update configuration:
 ```bash
 nix run .#install
 ```
 
-## Daily Usage
-
-After initial setup, update configuration with:
+### Managing Secrets
+Encrypt new sensitive files:
 ```bash
-nix run .#install
-```
-
-## Structure
-
-- `home/home.nix`: Home Manager configuration
-- `dotfiles/`: Original dotfiles
-- `flake.nix`: Nix flake configuration
-
-## Encrypting sensitive data
-```bash
+# SSH keys
 age -r $(age-keygen -y key.txt) ~/.ssh/id_rsa > keys/id_rsa.age
+age -r $(age-keygen -y key.txt) ~/.ssh/id_ed25519 > keys/id_ed25519.age
+
+# SOPS key
+age -r $(age-keygen -y key.txt) ~/.config/sops/age/key.txt > keys/sops.key.txt.age
 ```
