@@ -14,12 +14,11 @@ plugins=(git direnv)
 [[ -f "/opt/homebrew/bin/brew" ]] && eval "$(/opt/homebrew/bin/brew shellenv)"
 [[ -f "$HOME/.nix-profile/etc/profile.d/nix.sh" ]] && . "$HOME/.nix-profile/etc/profile.d/nix.sh"
 [[ -f "$HOME/.dir_colors" ]] && eval $(dircolors $HOME/.dir_colors)
-[[ -x "$(command -v atuin)" ]] && eval "$(atuin init zsh)"
+[[ -x "$(command -v atuin)" ]] && eval "$(atuin init zsh --disable-up-arrow)"
 [[ -x "$(command -v starship)" ]] && eval "$(starship init zsh)"
 [[ -x "$(command -v direnv)" ]] && eval "$(direnv hook zsh)"
 
 bindkey -v
-bindkey "^R" history-incremental-search-backward
 bindkey -M viins 'jj' vi-cmd-mode
 bindkey -M vicmd h backward-char
 bindkey -M vicmd s forward-char
