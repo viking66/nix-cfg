@@ -1,0 +1,62 @@
+theme = "nord-night"
+
+[editor]
+true-color = true
+color-modes = true
+cursorline = true
+cursorcolumn = true
+bufferline = "multiple"
+popup-border = "all"
+jump-label-alphabet = "htnsaoeudigpfycrlbmjkxwqvz"
+# rulers = [100]
+
+[keys.normal]
+t = "move_line_down"
+T = "join_selections"
+n = "move_line_up"
+N = "keep_selections"
+s = "move_char_right"
+j = "find_till_char"
+J = "till_prev_char"
+k = "select_regex"
+K = "hover"
+l = "search_next"
+L = "search_prev"
+"minus" = "goto_line_end"
+_ = "goto_line_start"
+x = ["goto_line_start", "select_mode", "goto_line_end_newline"]
+"ret" = "goto_word"
+"*" = ["search_selection", "search_next"]
+
+[keys.normal.space]
+w = ":w"
+q = ":q"
+"." = "code_action"
+"/" = "toggle_comments"
+y = ":yank-diagnostic"
+r = ":config-reload"
+f = ":format"
+
+[keys.select]
+t = "extend_line_down"
+n = "extend_line_up"
+";" = ["collapse_selection", "normal_mode"]
+
+[keys.insert]
+j = { j = "normal_mode" }
+
+[editor.indent-guides]
+render = true
+
+[editor.soft-wrap]
+enable = true
+
+[editor.statusline]
+center = ["selections"]
+right = ["diagnostics", "register", "position", "separator", "total-line-numbers", "file-encoding", "mode"]
+
+# 1. Create a script and put it in your PATH.
+# 2. Add it to a custom menu in Helix:
+# [keys.normal."'"]
+# m = ":pipe script"
+# Now you can select the text you want to modify and run the script with ' + key.
