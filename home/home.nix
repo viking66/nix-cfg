@@ -30,6 +30,7 @@
     };
     ".ssh/id_ed25519.pub".source = ../keys/id_ed25519.pub;
     ".ssh/id_rsa.pub".source = ../keys/id_rsa.pub;
+    ".ssh/gh_id_ed25519.pub".source = ../keys/gh_id_ed25519.pub;
   };
   home.activation = {
     decryptKeys = lib.hm.dag.entryAfter ["writeBoundary"] ''
@@ -38,6 +39,9 @@
       
       $DRY_RUN_CMD ${pkgs.age}/bin/age -d -i $HOME/.config/nix-cfg/key.txt -o $VERBOSE_ARG $HOME/.ssh/id_rsa ${../keys/id_rsa.age}
       $DRY_RUN_CMD chmod 600 $VERBOSE_ARG $HOME/.ssh/id_rsa
+
+      $DRY_RUN_CMD ${pkgs.age}/bin/age -d -i $HOME/.config/nix-cfg/key.txt -o $VERBOSE_ARG $HOME/.ssh/gh_id_ed25519 ${../keys/gh_id_ed25519.age}
+      $DRY_RUN_CMD chmod 600 $VERBOSE_ARG $HOME/.ssh/gh_id_ed25519
       
       $DRY_RUN_CMD mkdir -p $VERBOSE_ARG $HOME/.config/sops/age
       $DRY_RUN_CMD ${pkgs.age}/bin/age -d -i $HOME/.config/nix-cfg/key.txt -o $VERBOSE_ARG $HOME/.config/sops/age/key.txt ${../keys/sops.key.txt.age}
