@@ -8,7 +8,8 @@ cursorcolumn = true
 bufferline = "multiple"
 popup-border = "all"
 jump-label-alphabet = "htnsaoeudigpfycrlbmjkxwqvz"
-# rulers = [100]
+rulers = [100]
+end-of-line-diagnostics = 'hint'
 
 [keys.normal]
 t = "move_line_down"
@@ -54,6 +55,9 @@ enable = true
 [editor.statusline]
 center = ["selections"]
 right = ["diagnostics", "register", "position", "separator", "total-line-numbers", "file-encoding", "mode"]
+
+[editor.inline-diagnostics]
+cursor-line = "warning"
 
 # 1. Create a script and put it in your PATH.
 # 2. Add it to a custom menu in Helix:
