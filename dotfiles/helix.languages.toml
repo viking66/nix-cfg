@@ -25,3 +25,8 @@ auto-format = false
 comment-token = "--"
 indent = { tab-width = 4, unit = "    " }
 language-servers = [ "ucm" ]
+
+[[language]]
+name = "yaml"
+scope = "source.yaml"
+file-types = ["yaml", "yml", "yaml.enc", "yml.enc"]
