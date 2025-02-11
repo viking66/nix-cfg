@@ -52,7 +52,6 @@
     age
     atuin
     bat
-    cachix
     comma
     coreutils
     direnv
