@@ -58,6 +58,7 @@
     direnv
     helix
     home-manager
+    inconsolata
     moreutils
     ripgrep
     starship
