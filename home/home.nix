@@ -6,9 +6,6 @@
   home.sessionVariables = {
     NIX_PATH = "nixpkgs=${pkgs.path}";
   };
-  nixpkgs.config = {
-    allowUnfree = true;
-  };
   home.file = {
     ".config/atuin/config.toml".source = ../dotfiles/atuin.config.toml;
     ".dir_colors".source = ../dotfiles/dir_colors;
@@ -64,6 +61,7 @@
     tree
     tmux
     xsel
+    zellij
     zlib
   ];
 }
