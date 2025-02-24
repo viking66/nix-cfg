@@ -51,6 +51,7 @@
     bat
     comma
     coreutils
+    delta
     direnv
     helix
     home-manager

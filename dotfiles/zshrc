@@ -7,8 +7,7 @@ CASE_SENSITIVE="true"
 
 alias ls='ls --color=auto'
 alias ll='ls -alF'
-alias hm-switch='home-manager switch --flake ~/.config/home-manager#jason'
-alias hm-edit='hx ~/.config/home-manager/home.nix'
+alias bat='bat --theme=Nord'
 
 plugins=(git direnv)
 [[ -f "$ZSH/oh-my-zsh.sh" ]] && source $ZSH/oh-my-zsh.sh
