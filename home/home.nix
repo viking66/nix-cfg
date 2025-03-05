@@ -3,9 +3,6 @@
   home.username = "jason";
   home.homeDirectory = "/Users/jason";
   home.stateVersion = "24.05";
-  home.sessionVariables = {
-    NIX_PATH = "nixpkgs=${pkgs.path}";
-  };
   home.file = {
     ".config/atuin/config.toml".source = ../dotfiles/atuin.config.toml;
     ".dir_colors".source = ../dotfiles/dir_colors;
