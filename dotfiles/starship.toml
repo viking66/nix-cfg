@@ -15,4 +15,5 @@ $character\
 """
 
 [nix_shell]
+format = "$symbol"
 heuristic = true
