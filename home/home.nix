@@ -3,6 +3,9 @@
   home.username = "jason";
   home.homeDirectory = "/Users/jason";
   home.stateVersion = "24.05";
+  home.sessionVariables = {
+    NIX_SHELL_PRESERVE_PROMPT=1;
+  };
   home.file = {
     ".config/atuin/config.toml".source = ../dotfiles/atuin.config.toml;
     ".dir_colors".source = ../dotfiles/dir_colors;
