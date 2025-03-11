@@ -53,6 +53,7 @@
     coreutils
     delta
     direnv
+    fd
     helix
     home-manager
     inconsolata
