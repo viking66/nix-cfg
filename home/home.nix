@@ -5,7 +5,10 @@
   home.stateVersion = "24.05";
   home.sessionVariables = {
     NIX_SHELL_PRESERVE_PROMPT=1;
+    FONTCONFIG_FILE = "${pkgs.fontconfig.out}/etc/fonts/fonts.conf";
+    FONTCONFIG_PATH = "${pkgs.fontconfig.out}/etc/fonts";
   };
+  fonts.fontconfig.enable = true;
   home.file = {
     ".config/atuin/config.toml".source = ../dotfiles/atuin.config.toml;
     ".dir_colors".source = ../dotfiles/dir_colors;
@@ -54,6 +57,7 @@
     delta
     direnv
     fd
+    fontconfig
     helix
     home-manager
     inconsolata
