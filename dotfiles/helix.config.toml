@@ -36,7 +36,7 @@ q = ":q"
 "/" = "toggle_comments"
 y = ":yank-diagnostic"
 r = ":config-reload"
-f = ":format"
+F = ":format"
 
 [keys.select]
 t = "extend_line_down"
