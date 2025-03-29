@@ -8,6 +8,7 @@ CASE_SENSITIVE="true"
 alias ls='ls --color=auto'
 alias ll='ls -alF'
 alias bat='bat --theme=Nord'
+alias useflake='echo "use flake" >> .envrc && direnv allow'
 
 plugins=(git direnv)
 [[ -f "$ZSH/oh-my-zsh.sh" ]] && source $ZSH/oh-my-zsh.sh
