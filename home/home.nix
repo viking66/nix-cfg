@@ -65,8 +65,6 @@
     starship
     tree
     tmux
-    xsel
-    zellij
     zlib
   ];
   programs = {
