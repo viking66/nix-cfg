@@ -1,6 +1,7 @@
 [[language]]
 name = "haskell"
 auto-format = true
+formatter = { command = "fourmolu" }
 
 [language-server.haskell-language-server.config]
 formattingProvider = "fourmolu"
