@@ -9,6 +9,7 @@ alias ls='ls --color=auto'
 alias ll='ls -alF'
 alias bat='bat --theme=Nord'
 alias useflake='echo "use flake" >> .envrc && direnv allow'
+alias cabal='cabal -v0' # Stop cabal from printing debug info
 
 plugins=(git direnv)
 [[ -f "$ZSH/oh-my-zsh.sh" ]] && source $ZSH/oh-my-zsh.sh
