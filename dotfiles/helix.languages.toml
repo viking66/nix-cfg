@@ -1,6 +1,7 @@
 [[language]]
 name = "haskell"
 auto-format = true
+indent = { tab-width = 4, unit = "    " }
 
 [language-server.haskell-language-server.config]
 formattingProvider = "fourmolu"
