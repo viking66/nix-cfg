@@ -8,7 +8,7 @@ CASE_SENSITIVE="true"
 alias ls='ls --color=auto'
 alias ll='ls -alF'
 alias bat='bat --theme=Nord'
-alias useflake='echo "use flake" >> .envrc && direnv allow'
+alias useflake='echo "use flake\nSOPS_AGE_KEY_FILE=~/secrets/jason.agekey" >> .envrc && direnv allow'
 alias cabal='cabal -v0' # Stop cabal from printing debug info
 
 plugins=(git direnv)
